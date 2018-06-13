@@ -153,8 +153,8 @@ static const CGFloat kLayoutImageScrollViewAnimationDuration = 0.25;
     [self.view addSubview:self.cancelButton];
     [self.view addSubview:self.chooseButton];
     
-    [self.view addGestureRecognizer:self.doubleTapGestureRecognizer];
-    [self.view addGestureRecognizer:self.rotationGestureRecognizer];
+//    [self.view addGestureRecognizer:self.doubleTapGestureRecognizer];
+//    [self.view addGestureRecognizer:self.rotationGestureRecognizer];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -358,6 +358,7 @@ static const CGFloat kLayoutImageScrollViewAnimationDuration = 0.25;
         _cancelButton.translatesAutoresizingMaskIntoConstraints = NO;
         [_cancelButton setTitle:RSKLocalizedString(@"Cancel", @"Cancel button") forState:UIControlStateNormal];
         [_cancelButton addTarget:self action:@selector(onCancelButtonTouch:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view bringSubviewToFront:_cancelButton];
         _cancelButton.opaque = NO;
     }
     return _cancelButton;
@@ -370,6 +371,7 @@ static const CGFloat kLayoutImageScrollViewAnimationDuration = 0.25;
         _chooseButton.translatesAutoresizingMaskIntoConstraints = NO;
         [_chooseButton setTitle:RSKLocalizedString(@"Choose", @"Choose button") forState:UIControlStateNormal];
         [_chooseButton addTarget:self action:@selector(onChooseButtonTouch:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view bringSubviewToFront:_chooseButton];
         _chooseButton.opaque = NO;
     }
     return _chooseButton;
